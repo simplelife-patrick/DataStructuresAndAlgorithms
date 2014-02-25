@@ -26,7 +26,9 @@ int main(int argc, const char * argv[])
         NSMutableArray* array = [[NSMutableArray alloc] initWithArray:source];
         NSArray* sortedArray = nil;
 
-        sortedArray = [SortAlgorithm bubbleSort:array];
+//        sortedArray = [SortAlgorithm bubbleSort:array];
+
+        sortedArray = [SortAlgorithm selectSort:array];
 
         printMutableArray(sortedArray);
     }

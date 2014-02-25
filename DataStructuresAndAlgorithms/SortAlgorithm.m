@@ -21,11 +21,11 @@
 +(NSMutableArray*) bubbleSort:(NSMutableArray*) array
 {
     NSMutableArray* sortedArray = [NSMutableArray arrayWithArray:array];
-    NSUInteger mutableArrayCount = sortedArray.count;
-    for (NSUInteger i = 0; i < mutableArrayCount; i++)
+    NSUInteger arrayCount = array.count;
+    for (NSUInteger i = 0; i < arrayCount; i++)
     {
         bool exchanged = false;
-        for (NSUInteger j = 0 ; j < mutableArrayCount - 1; j++)
+        for (NSUInteger j = 0 ; j < arrayCount - 1; j++)
         {
             NSUInteger index1 = j;
             NSUInteger index2 = j + 1;
@@ -41,6 +41,37 @@
         if (!exchanged)
         {
             break;
+        }
+    }
+    
+    return sortedArray;
+}
+
+// 选择排序
++(NSMutableArray*) selectSort:(NSMutableArray*) array
+{
+    NSMutableArray* sortedArray = [NSMutableArray arrayWithArray:array];
+    NSUInteger arrayCount = sortedArray.count;
+    
+    for (int i = 0; i < arrayCount; i++)
+    {
+        int select = i;
+        
+        for (int j = i + 1; j < arrayCount; j++)
+        {
+            NSUInteger index1 = select;
+            NSUInteger index2 = j;
+            NSInteger value1 = [sortedArray[index1] integerValue];
+            NSInteger value2 = [sortedArray[index2] integerValue];
+            if (value2 < value1)
+            {
+                select = j;
+            }
+        }
+        
+        if (select != i)
+        {
+            [SortAlgorithm swap:sortedArray index1:select index2:i];
         }
     }
     
