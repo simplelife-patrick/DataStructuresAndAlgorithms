@@ -22,7 +22,18 @@ int main(int argc, const char * argv[])
 {
     @autoreleasepool
     {
-        NSArray* source = @[@"22", @"6", @"19", @"87", @"45", @"13", @"56", @"99", @"70", @"64"];
+        NSArray* source = @[
+                            [NSNumber numberWithInt:22],
+                            [NSNumber numberWithInt:6],
+                            [NSNumber numberWithInt:19],
+                            [NSNumber numberWithInt:87],
+                            [NSNumber numberWithInt:45],
+                            [NSNumber numberWithInt:13],
+                            [NSNumber numberWithInt:56],
+                            [NSNumber numberWithInt:99],
+                            [NSNumber numberWithInt:70],
+                            [NSNumber numberWithInt:64]
+                           ];
         NSMutableArray* array = [[NSMutableArray alloc] initWithArray:source];
         NSArray* sortedArray = nil;
 
@@ -30,7 +41,9 @@ int main(int argc, const char * argv[])
 
 //        sortedArray = [SortAlgorithm selectSort:array];
         
-        sortedArray = [SortAlgorithm insertSort:array];
+//        sortedArray = [SortAlgorithm insertSort:array];
+        
+        sortedArray = [SortAlgorithm quickSort:array];
 
         printMutableArray(sortedArray);
     }

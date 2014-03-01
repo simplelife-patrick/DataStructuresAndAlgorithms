@@ -102,4 +102,55 @@
     return sortedArray;
 }
 
+// 快速排序
++(NSMutableArray*) quickSort:(NSMutableArray*) array
+{
+    NSMutableArray* sortedArray = [NSMutableArray arrayWithArray:array];
+    NSUInteger arrayCount = sortedArray.count;
+    
+    [SortAlgorithm _quickSort:sortedArray beginIndex:0 endIndex:arrayCount - 1];
+    
+    return sortedArray;
+}
+
+// 快速排序的递归调用函数
++(void) _quickSort:(NSMutableArray*) array beginIndex:(NSUInteger) beginIndex endIndex:(NSUInteger) endIndex
+{
+    NSUInteger i = beginIndex;
+    NSUInteger j = endIndex;
+    if (i >= j)
+    {
+        return;
+    }
+    
+    NSInteger mainElement = [array[i] integerValue];
+
+    while (i < j)
+    {
+        while (i < j && [array[j] integerValue] >= mainElement)
+        {
+            j--;
+        }
+        if (i < j)
+        {
+            [SortAlgorithm swap:array index1:i index2:j];
+            i++;
+        }
+        
+        while (i < j && [array[i] integerValue] < mainElement)
+        {
+            i++;
+        }
+        if (i < j)
+        {
+            [SortAlgorithm swap:array index1:i index2:j];
+            j--;
+        }
+    }
+    
+
+    [SortAlgorithm _quickSort:array beginIndex:beginIndex endIndex:i - 1];
+    [SortAlgorithm _quickSort:array beginIndex:i + 1 endIndex:endIndex];
+}
+
 @end
