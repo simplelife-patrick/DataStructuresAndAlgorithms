@@ -22,13 +22,15 @@ int main(int argc, const char * argv[])
 {
     @autoreleasepool
     {
-        NSArray* source = @[@"22", @"6", @"19", @"87", @"45", @"13", @"56", @"99", @"70", @"1"];
+        NSArray* source = @[@"22", @"6", @"19", @"87", @"45", @"13", @"56", @"99", @"70", @"64"];
         NSMutableArray* array = [[NSMutableArray alloc] initWithArray:source];
         NSArray* sortedArray = nil;
 
 //        sortedArray = [SortAlgorithm bubbleSort:array];
 
-        sortedArray = [SortAlgorithm selectSort:array];
+//        sortedArray = [SortAlgorithm selectSort:array];
+        
+        sortedArray = [SortAlgorithm insertSort:array];
 
         printMutableArray(sortedArray);
     }

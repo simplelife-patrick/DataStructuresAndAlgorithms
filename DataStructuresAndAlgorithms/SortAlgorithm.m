@@ -78,4 +78,28 @@
     return sortedArray;
 }
 
+// 插入排序
++(NSMutableArray*) insertSort:(NSMutableArray*) array
+{
+    NSMutableArray* sortedArray = [NSMutableArray arrayWithArray:array];
+    NSUInteger arrayCount = sortedArray.count;
+    
+    NSInteger temp = 0;
+    
+    for (int i = 1; i < arrayCount; i++)
+    {
+        NSInteger j = i - 1;
+        temp = [sortedArray[i] integerValue];
+
+        while (j >= 0 && temp < [sortedArray[j] integerValue])
+        {
+            [SortAlgorithm swap:sortedArray index1:j + 1 index2:j];
+            
+            j--;
+        }
+    }
+    
+    return sortedArray;
+}
+
 @end
