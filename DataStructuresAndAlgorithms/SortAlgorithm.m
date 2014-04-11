@@ -153,4 +153,37 @@
     [SortAlgorithm _quickSort:array beginIndex:i + 1 endIndex:endIndex];
 }
 
+// 希尔排序
+/*
+ - (NSArray *)shellSortWithArray:(NSArray *)aData;
+ {
+ NSMutableArray *data = [[[NSMutableArray alloc] initWithArray:aData] autorelease];
+ int length = [data count];
+ for (int h = length / 2; h > 0; h = h / 2) {
+ // here is insert sort
+ for (int i = h; i < length; i++) {
+ NSNumber *temp = [data objectAtIndex:i];
+ if ([temp integerValue] < [[data objectAtIndex:i - h] integerValue]) {
+ for (int j = 0; j < i; j += h) {
+ if ([temp integerValue] < [[data objectAtIndex:j] integerValue]) {
+ [self swapWithData:data index1:i index2:j];
+ }
+ }
+ }
+ }
+ 
+ }
+ return data;
+ }
+ */
++(NSMutableArray*) shellSort:(NSMutableArray *)array
+{
+    NSMutableArray* sortedArray = [NSMutableArray arrayWithArray:array];
+    NSUInteger arrayCount = sortedArray.count;
+    
+    
+    
+    return sortedArray;
+}
+
 @end

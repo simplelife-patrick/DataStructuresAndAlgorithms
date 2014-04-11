@@ -39,4 +39,9 @@
  */
 +(NSMutableArray*) quickSort:(NSMutableArray*) array;
 
+/*
+ 希尔排序
+ */
++(NSMutableArray*) shellSort:(NSMutableArray*) array;
+
 @end
